@@ -14,7 +14,7 @@ class TestCriacaoUsuario():
     def teardown_method(self, method):
         self.driver.quit()
 
-    @pytest.mark.skip(reason="temporaly ignore")
+    # @pytest.mark.skip(reason="temporaly ignore")
     def test_criacao_usuario(self):
         self.driver.get(self.url)
         self.driver.find_element(By.CSS_SELECTOR, "#perfil-hidden > img").click()

@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
-class TestLoginPositivo():
+class TestLoginNegativo():
 
     url = "https://www.giulianaflores.com.br/"
 
