@@ -25,22 +25,21 @@ class TestFluxoCompraBanner():
         self.driver.find_element(By.ID, "ContentSite_txtPassword").click()
         self.driver.find_element(By.ID, "ContentSite_txtPassword").send_keys("oBaa9f2Lgi")
         self.driver.find_element(By.CSS_SELECTOR, "#ContentSite_ibtContinue").click()
-        self.driver.find_element(By.CSS_SELECTOR, ".swiper-slide-active .img_banner").click()
 
+        self.driver.find_element(By.CSS_SELECTOR, ".swiper-slide-active .img_banner").click()
+        assert self.driver.find_element(By.CSS_SELECTOR, ".titulo-dept").text == "PRESENTE DE PÁSCOA"
+        
         self.driver.find_element(By.CSS_SELECTOR, "#inputSearchAddress").click()
         self.driver.find_element(By.CSS_SELECTOR, "#inputSearchAddress").send_keys("41195-665")
         self.driver.find_element(By.XPATH, "//li[contains(text(),'2ª Travessa Irmã Dulce, Barreiras, Salvador - BA, ')]").click()
         self.driver.find_element(By.XPATH, "//div[contains(text(),'Aplicar')]").click()
-
-        assert self.driver.find_element(By.CSS_SELECTOR, ".titulo-dept").text == "PRESENTE DE PÁSCOA"
-        # self.driver.find_element(By.CSS_SELECTOR, ".close-button").click()
         self.driver.find_element(By.ID, "txtDsKeyWord").click()
         self.driver.find_element(By.ID, "txtDsKeyWord").send_keys("Margaridinhas Brancas e Ferrero Rocher")
         self.driver.find_element(By.ID, "btnSearch").click()
-
         self.driver.find_element(By.CSS_SELECTOR, ".image-content > img").click()
         assert self.driver.find_element(By.ID, "ContentSite_lblProductDsName").text == "MARGARIDINHAS BRANCAS E FERRERO ROCHER"
         assert self.driver.find_element(By.CSS_SELECTOR, ".precoPor_prod:nth-child(3)").text == "R$ 109,90"
+        
         self.driver.find_element(By.ID, "ContentSite_lbtBuy").click()
         self.driver.find_element(By.LINK_TEXT, "30").click()
         assert self.driver.find_element(By.CSS_SELECTOR, ".vlPriceCalendar").text == "R$ 28,90"
@@ -51,6 +50,7 @@ class TestFluxoCompraBanner():
         assert self.driver.find_element(By.CSS_SELECTOR, "li:nth-child(1) > .preco-total-produto > .precoPor_basket").text == "R$ 109,90"
         assert self.driver.find_element(By.CSS_SELECTOR, ".fretepago").text == "R$ 28,90"
         self.driver.find_element(By.ID, "ContentSite_Basketcontrol1_rptBasket_imbFinalize_0").click()
+        
         self.driver.find_element(By.ID, "txtDsDestinationName").click()
         self.driver.find_element(By.ID, "txtDsDestinationName").send_keys("Ruan Arthur Barros")
         self.driver.find_element(By.CSS_SELECTOR, "#ContentSite_rptDeliveryAddress_rbtFgPersonalAddress_0_0_0").click()
