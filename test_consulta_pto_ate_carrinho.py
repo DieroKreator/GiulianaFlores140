@@ -15,7 +15,6 @@ class TestConsultaPtoAteCarrinho():
   
   def test_consulta_pto_ate_carrinho(self):
     self.driver.get(self.url)
-    # self.driver.set_window_size(1673, 1142)
     self.driver.maximize_window()
     self.driver.find_element(By.CSS_SELECTOR, ".item-3 > .link-menu-desktop").click()
     assert self.driver.find_element(By.CSS_SELECTOR, ".titulo-dept").text == "BUQUÊ DE FLORES"
@@ -24,15 +23,12 @@ class TestConsultaPtoAteCarrinho():
     self.driver.find_element(By.XPATH, "//li[contains(text(),'2ª Travessa Irmã Dulce, Barreiras, Salvador - BA, ')]").click()
     self.driver.find_element(By.XPATH, "//div[contains(text(),'Aplicar')]").click()
 
-    # assert self.driver.find_element(By.CSS_SELECTOR, ".item:nth-child(1) .title-item").text == "Buquê 10 Girassóis"
     txtBuque = self.driver.find_element(By.CSS_SELECTOR, ".item:nth-child(1) .title-item").text
-
-    # assert self.driver.find_element(By.CSS_SELECTOR, ".item:nth-child(1) .actual-price").text == "R$ 289,90"
     priceBuque = self.driver.find_element(By.CSS_SELECTOR, ".item:nth-child(1) .actual-price").text
 
     self.driver.find_element(By.CSS_SELECTOR, ".item:nth-child(1) .image-content > img").click()
-    assert self.driver.find_element(By.CSS_SELECTOR, "li > span:nth-child(2)").text == txtBuque     #"Buquê 10 Girassóis"
-    assert self.driver.find_element(By.CSS_SELECTOR, ".preco_prod > .precoPor_prod").text == priceBuque     #"R$ 289,90"
+    assert self.driver.find_element(By.CSS_SELECTOR, "li > span:nth-child(2)").text == txtBuque
+    assert self.driver.find_element(By.CSS_SELECTOR, ".preco_prod > .precoPor_prod").text == priceBuque
 
     self.driver.find_element(By.ID, "ContentSite_lbtBuy").click()
     self.driver.execute_script("window.scrollTo(0,7)")
