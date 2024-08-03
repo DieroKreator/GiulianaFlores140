@@ -18,3 +18,11 @@ Abrir navegador
     Maximize Browser Window
     Set Browser Implicit Wait    10000ms
     Wait Until Element Is Visible    css=.login_logo    ${timeout}
+
+Clicar na Categoria
+    Click Element    css=.item-3 > .link-menu-desktop
+    Wait Until Element Contains    css=.titulo-dept    BUQUÊ DE FLORES    ${timeout}
+
+Fechar navegador
+    Sleep    500ms
+    Close Browser
